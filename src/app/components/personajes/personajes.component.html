@@ -11,6 +11,7 @@
             <tr *ngFor="let personaje of personajes">
                 <td>{{personaje.nombre}}</td>
                 <td><img src="{{personaje.imagen}}" alt="foto personaje" style="width: 250px; height: 250px;"></td>
+                <td><button (click)="borrarPj(personaje.idPersonaje)" class="btn btn-danger">Borrar</button></td>
             </tr>
         </tbody>
     </table>

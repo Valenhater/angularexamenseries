@@ -15,13 +15,28 @@ export class PersonajesComponent implements OnInit {
     private _activeRoute: ActivatedRoute) {
     this.idserie = 0
   }
-  ngOnInit(): void {
+
+  //Cogemos el valor que creamos en el html de este componente para recoger el id del personaje para el delete pasando a string
+  borrarPj(idPersonaje:number):void{
+      var id = idPersonaje.toString()
+      console.log(id)
+      this._serviceSeries.borrarPersonaje(id).subscribe((response) =>{
+        this.cargarPersonajes();
+      })
+      
+
+  }
+  
+  cargarPersonajes(){
     this._activeRoute.params.subscribe((parametros: Params) => {
       this.idserie = parseInt(parametros['idserie'])
       this._serviceSeries.getPersonajes(this.idserie).subscribe((response) => {
         this.personajes = response;
       })
     })
+  }
+  ngOnInit(): void {
+    this.cargarPersonajes();
   }
 
 }

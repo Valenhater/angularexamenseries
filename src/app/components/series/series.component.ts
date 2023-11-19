@@ -18,14 +18,17 @@ export class SeriesComponent implements OnInit {
   ) {
     this.idserie = 0;
   }
+  loadPersonajes() {
+
+  }
   ngOnInit(): void {
     //Conseguir el parametro de la ruta de la url
     this._activeRoute.params.subscribe((parametros: Params) => {
-      this.idserie = parseInt(parametros['idserie'])
-    })
-
-    this._serviceSeries.getSerie(this.idserie).subscribe((response) => {
-      this.series = response;
+      this.idserie = parametros['idserie']
+      this._serviceSeries.getSerie(this.idserie).subscribe((response) => {
+        this.series = response;
+      })
     })
   }
-} 
+}
+

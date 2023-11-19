@@ -44,9 +44,15 @@ export class ServiceSeries {
         return this._http.post(url, json, { headers: header });
     }
     modificarPersonaje(idserie:number, idpersonaje:number):Observable<any> {
-        var request ="/api/Personajes/"+idpersonaje+"/"+idserie
+        var request ="api/Personajes/"+idpersonaje+"/"+idserie
         var url = environment.apiCrudSeries + request
 
         return this._http.put(url,{});
+    }
+    borrarPersonaje(idpersonaje:string):Observable<any>{
+        var request ="api/personajes/" +idpersonaje
+        var url = environment.apiCrudSeries + request
+
+        return this._http.delete(url);
     }
 }
