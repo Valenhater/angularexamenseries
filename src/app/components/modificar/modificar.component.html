@@ -1,0 +1,33 @@
+<div>
+    <h1>Modificar personaje:</h1>
+    <form #modificarForm="ngForm">
+      <label>Serie</label>
+      <select  #cajaidserie name="cajaidserie">
+        <option
+          *ngFor="let serie of series"
+          class="dropdown-item"
+          value="{{ serie.idSerie }}"
+        >
+          {{ serie.nombre }}
+        </option>
+      </select>
+      <label>Personaje</label>
+      <select  #cajaidpersonaje name="cajaidpersonaje">
+        <option
+          *ngFor="let personaje of personajes"
+          class="dropdown-item"
+          value="{{ personaje.idPersonaje }}"
+        >
+          {{ personaje.nombre }}
+        </option>
+      </select>
+      <button (click)="modificarPersonaje()" class="btn btn-success">Modificar</button>
+    </form>
+    <div *ngIf="serie">
+        <img src="{{ serie.nombre }}" alt="">
+    </div>
+    <div *ngIf="personaje">
+        <img src="{{ personaje.nombre }}" alt="">
+    </div>
+  </div>
+  

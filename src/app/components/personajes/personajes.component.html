@@ -1,0 +1,18 @@
+<div>
+    <a [routerLink]="['/serie', idserie]" class="btn btn-danger">Volver</a> <!-- En el router link metemos el idserie creado en el componente que recoge el idserie de la url-->
+    <table class="table table-dark table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let personaje of personajes">
+                <td>{{personaje.nombre}}</td>
+                <td><img src="{{personaje.imagen}}" alt="foto personaje" style="width: 250px; height: 250px;"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

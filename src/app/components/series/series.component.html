@@ -1,0 +1,11 @@
+<div *ngIf="series">
+    <div class="card" style="width: 48rem">
+      <img src="{{series.imagen}}" class="card-img-top" alt="..." />
+      <div class="card-body" >
+        <h5 class="card-title">{{series.nombre}}</h5>
+        <p class="card-text">IMDB: {{series.puntuacion}}</p>
+        <p class="card-text">Año: {{series.anyo}}</p>
+        <a [routerLink]="['/personajes', series.idSerie]" class="btn btn-success">Personajes</a>
+      </div>
+    </div>
+  </div>
