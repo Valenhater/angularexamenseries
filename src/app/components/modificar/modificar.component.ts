@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ModificarComponent implements OnInit {
   public personaje!: Personaje
+  public serie!: Serie
   public series !: Array<Serie>
   public personajes !: Array<Personaje>
 
@@ -24,6 +25,20 @@ export class ModificarComponent implements OnInit {
 
     this._serviceSeries.modificarPersonaje(idser, idper).subscribe(response => {
       this._router.navigate(["/"]);
+    })
+  }
+  cargarFotopj():void {
+    var idper = parseInt(this.cajaIdPersonajeRef.nativeElement.value);
+    this._serviceSeries.findPersonaje(idper).subscribe(response => {
+      console.log(response)
+      this.personaje = response
+    })
+  }
+  cargarSerie():void{
+    var idser = parseInt(this.cajaIdSerieRef.nativeElement.value);
+    this._serviceSeries.getSerie(idser).subscribe(response => {
+      console.log(response)
+      this.serie = response
     })
   }
   ngOnInit(): void {

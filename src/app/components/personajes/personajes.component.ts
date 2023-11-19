@@ -23,10 +23,7 @@ export class PersonajesComponent implements OnInit {
       this._serviceSeries.borrarPersonaje(id).subscribe((response) =>{
         this.cargarPersonajes();
       })
-      
-
   }
-  
   cargarPersonajes(){
     this._activeRoute.params.subscribe((parametros: Params) => {
       this.idserie = parseInt(parametros['idserie'])

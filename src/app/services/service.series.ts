@@ -27,6 +27,12 @@ export class ServiceSeries {
 
         return this._http.get(url);
     }
+    findPersonaje(idpersonaje:number): Observable<any> {
+        var request ="api/Personajes/" +idpersonaje
+        var url = environment.apiCrudSeries + request
+
+        return this._http.get(url);
+    }
     getPersonajesMod(): Observable<any> {
         var request = "/api/Personajes" 
         var url = environment.apiCrudSeries + request;
