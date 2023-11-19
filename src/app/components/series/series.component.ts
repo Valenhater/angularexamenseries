@@ -18,9 +18,6 @@ export class SeriesComponent implements OnInit {
   ) {
     this.idserie = 0;
   }
-  loadPersonajes() {
-
-  }
   ngOnInit(): void {
     //Conseguir el parametro de la ruta de la url
     this._activeRoute.params.subscribe((parametros: Params) => {
